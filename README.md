@@ -1,4 +1,6 @@
 # vitelity-wrapper
 Vitelity API wrapper for .NET Standard 2.0
 
-Currently under development
+Vitelity API docs: https://apihelp.vitelity.net//
+
+This wrapper is currently under development
