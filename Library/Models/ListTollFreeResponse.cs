@@ -6,21 +6,12 @@ using System.Xml.Serialization;
 namespace Vitelity.Models
 {
     [XmlRoot("content")]
-    public class ListTollFreeResponse
+    public class ListTollFreeResponse : BasicResponse
     {
         public ListTollFreeResponse()
         {
             Numbers = new List<string>();
         }
-
-        [XmlElement("status")]
-        public string Status { get; set; }
-
-        [XmlElement("error")]
-        public string Error { get; set; }
-
-        [XmlElement("response")]
-        public string Response { get; set; }
 
         [XmlArray("numbers")]
         [XmlArrayItem("did")]

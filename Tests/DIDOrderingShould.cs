@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Vitelity.Tests
 {
-    public class DIDInventoryShould
+    public class DIDOrderingShould
     {
     }
 }

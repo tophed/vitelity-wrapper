@@ -3,20 +3,19 @@ using System.Threading.Tasks;
 
 namespace Vitelity.Commands
 {
-    public class DIDInventoryCommands : IDIDInventoryCommands
+    public class DIDOrderingCommands : IDIDOrderingCommands
     {
         HttpClient _http;
         CommandUrlBuilder _urlBuilder;
-
-        public DIDInventoryCommands(HttpClient http, CommandUrlBuilder urlBuilder)
+        public DIDOrderingCommands(HttpClient http, CommandUrlBuilder urlBuilder)
         {
             _http = http;
             _urlBuilder = urlBuilder;
         }
 
-        public async Task<CommandResult> ListNpa(string npa)
+        public async Task<CommandResult> GetLocalDID(string did)
         {
-            var response = await _http.GetAsync(_urlBuilder.ListNpa(npa));
+            var response = await _http.GetAsync(_urlBuilder.GetLocalDID(did));
             return new CommandResult
             {
                 Succeeded = response.IsSuccessStatusCode,
@@ -24,9 +23,9 @@ namespace Vitelity.Commands
             };
         }
 
-        public async Task<CommandResult> ListTollFree()
+        public async Task<CommandResult> GetTollFree(string did)
         {
-            var response = await _http.GetAsync(_urlBuilder.ListTollFree());
+            var response = await _http.GetAsync(_urlBuilder.GetTollFree(did));
             return new CommandResult
             {
                 Succeeded = response.IsSuccessStatusCode,
