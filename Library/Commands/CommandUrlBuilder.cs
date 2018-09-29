@@ -4,8 +4,6 @@ namespace Vitelity.Commands
     {
         string _baseUrl;
 
-        Credentials _creds;
-
         public CommandUrlBuilder(Credentials creds)
         {
             _baseUrl = $"https://api.vitelity.net/api.php?login={creds.Username}&pass={creds.Password}&xml=yes";

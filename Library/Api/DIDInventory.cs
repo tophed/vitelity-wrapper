@@ -7,7 +7,7 @@ using Vitelity.Utility;
 
 namespace Vitelity.Api
 {
-    public class DIDInventory
+    public class DIDInventory : IDIDInventory
     {
         IDIDInventoryCommands _cmd;
         ResponseDeserializer _deserializer;

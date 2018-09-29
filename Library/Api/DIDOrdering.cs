@@ -7,7 +7,7 @@ using Vitelity.Utility;
 
 namespace Vitelity.Api
 {
-    public class DIDOrdering
+    public class DIDOrdering : IDIDOrdering
     {
         IDIDOrderingCommands _cmd;
         ResponseDeserializer _deserializer;
