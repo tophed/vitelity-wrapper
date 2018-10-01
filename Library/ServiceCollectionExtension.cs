@@ -17,8 +17,8 @@ namespace Vitelity
             services.AddSingleton(new ResponseDeserializer());
             services.AddTransient<IDIDInventoryCommands, DIDInventoryCommands>();
             services.AddTransient<IDIDOrderingCommands, DIDOrderingCommands>();
-            services.AddTransient(typeof(DIDInventory));
-            services.AddTransient(typeof(DIDOrdering));
+            services.AddTransient<IDIDInventory, DIDInventory>();
+            services.AddTransient<IDIDOrdering, DIDOrdering>();
             return services;
         }
     }
