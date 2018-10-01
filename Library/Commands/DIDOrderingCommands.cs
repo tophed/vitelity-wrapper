@@ -13,9 +13,9 @@ namespace Vitelity.Commands
             _urlBuilder = urlBuilder;
         }
 
-        public async Task<CommandResult> GetLocalDID(string did)
+        public async Task<CommandResult> GetLocalDID(string did, string routesip = null)
         {
-            var response = await _http.GetAsync(_urlBuilder.GetLocalDID(did));
+            var response = await _http.GetAsync(_urlBuilder.GetLocalDID(did, routesip));
             return new CommandResult
             {
                 Succeeded = response.IsSuccessStatusCode,
@@ -23,9 +23,9 @@ namespace Vitelity.Commands
             };
         }
 
-        public async Task<CommandResult> GetTollFree(string did)
+        public async Task<CommandResult> GetTollFree(string did, string routesip = null)
         {
-            var response = await _http.GetAsync(_urlBuilder.GetTollFree(did));
+            var response = await _http.GetAsync(_urlBuilder.GetTollFree(did, routesip));
             return new CommandResult
             {
                 Succeeded = response.IsSuccessStatusCode,

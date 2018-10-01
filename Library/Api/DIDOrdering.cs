@@ -18,18 +18,18 @@ namespace Vitelity.Api
             _deserializer = deserializer;
         }
 
-        public async Task<BasicResponse> GetLocalDID(string did)
+        public async Task<BasicResponse> GetLocalDID(string did, string routesip = null)
         {
-            var result = await _cmd.GetLocalDID(did);
+            var result = await _cmd.GetLocalDID(did, routesip);
 
             if (!result.Succeeded) return null;
 
             return _deserializer.DeserializeBasicResponse(result.Content);
         }
 
-        public async Task<BasicResponse> GetTollFreeDID(string did)
+        public async Task<BasicResponse> GetTollFreeDID(string did, string routesip = null)
         {
-            var result = await _cmd.GetTollFree(did);
+            var result = await _cmd.GetTollFree(did, routesip);
 
             if (!result.Succeeded) return null;
 

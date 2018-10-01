@@ -82,5 +82,47 @@ namespace Vitelity.Tests
 
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void MakeCorrectUrlForGetLocalDIDWithRouteSip()
+        {
+            var fakeCreds = new Credentials
+            {
+                Username = "username",
+                Password = "password"
+            };
+
+            var fakeDid = "5555555555";
+            var fakeRouteSip = "0.0.0.0";
+
+            var sut = new CommandUrlBuilder(fakeCreds);
+
+            var expected = "https://api.vitelity.net/api.php?login=username&pass=password&xml=yes&cmd=getlocaldid&did=5555555555&routesip=0.0.0.0";
+
+            var actual = sut.GetLocalDID(fakeDid, fakeRouteSip);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void MakeCorrectUrlForGetTollFreeWithRouteSip()
+        {
+            var fakeCreds = new Credentials
+            {
+                Username = "username",
+                Password = "password"
+            };
+
+            var fakeDid = "5555555555";
+            var fakeRouteSip = "0.0.0.0";
+
+            var sut = new CommandUrlBuilder(fakeCreds);
+
+            var expected = "https://api.vitelity.net/api.php?login=username&pass=password&xml=yes&cmd=gettollfree&did=5555555555&routesip=0.0.0.0";
+
+            var actual = sut.GetTollFree(fakeDid, fakeRouteSip);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }

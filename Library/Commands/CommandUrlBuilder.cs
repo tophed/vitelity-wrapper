@@ -4,8 +4,6 @@ namespace Vitelity.Commands
     {
         string _baseUrl;
 
-        Credentials _creds;
-
         public CommandUrlBuilder(Credentials creds)
         {
             _baseUrl = $"https://api.vitelity.net/api.php?login={creds.Username}&pass={creds.Password}&xml=yes";
@@ -21,14 +19,28 @@ namespace Vitelity.Commands
             return $"{_baseUrl}&cmd=listtollfree";
         }
 
-        public string GetLocalDID(string did)
+        public string GetLocalDID(string did, string routesip = null)
         {
-            return $"{_baseUrl}&cmd=getlocaldid&did={did}";
+            var url = $"{_baseUrl}&cmd=getlocaldid&did={did}";
+
+            if (routesip != null)
+            {
+                url += $"&routesip={routesip}";
+            }
+
+            return url;
         }
 
-        public string GetTollFree(string did)
+        public string GetTollFree(string did, string routesip = null)
         {
-            return $"{_baseUrl}&cmd=gettollfree&did={did}";
+            var url = $"{_baseUrl}&cmd=gettollfree&did={did}";
+
+            if (routesip != null)
+            {
+                url += $"&routesip={routesip}";
+            }
+
+            return url;
         }
     }
 }
