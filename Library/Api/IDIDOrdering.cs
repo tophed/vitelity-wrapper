@@ -5,7 +5,7 @@ namespace Vitelity.Api
 {
     public interface IDIDOrdering
     {
-        Task<BasicResponse> GetLocalDID(string did);
-        Task<BasicResponse> GetTollFreeDID(string did);
+        Task<BasicResponse> GetLocalDID(string did, string routesip = null);
+        Task<BasicResponse> GetTollFreeDID(string did, string routesip = null);
     }
 }
